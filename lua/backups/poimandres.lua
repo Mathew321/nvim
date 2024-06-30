@@ -15,5 +15,6 @@ return {
   -- optionally set the colorscheme within lazy config
   init = function()
     vim.cmd("colorscheme poimandres")
+    vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
   end
 }

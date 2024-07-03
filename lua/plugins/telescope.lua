@@ -13,7 +13,7 @@ return {
             local current_file = vim.fn.expand("%:p")
             builtin.grep_string({
                search = "",
-               search_dirs = { vim.fn.expand("~") },
+               search_dirs = { vim.fn.expand( current_file ) },
                attach_mappings = function(prompt_bufnr, map)
                   actions.select_default:replace(function()
                      local selection = action_state.get_selected_entry()

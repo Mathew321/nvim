@@ -28,3 +28,5 @@ vim.keymap.set(
 )
 
 vim.wo.relativenumber = true
+
+-- Added test comment

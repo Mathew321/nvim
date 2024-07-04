@@ -18,7 +18,8 @@ require('vim-settings')
 require("lazy").setup("plugins")
 
 vim.keymap.set("n", '<leader>pv', vim.cmd.Ex)
-vim.keymap.set("v", '<leader>y', '"+y')
+vim.opt.clipboard = 'unnamedplus'
+vim.keymap.set("n", '<leader>y', 'yy')
 
 -- Set keymap for python auto fill def main()
 vim.keymap.set(
@@ -29,4 +30,17 @@ vim.keymap.set(
 
 vim.wo.relativenumber = true
 
--- Added test comment
+-- Define a function to set up the autocmd
+local function setup_highlight_on_yank()
+    -- Create an autogroup for managing the autocmds
+    vim.api.nvim_command('augroup kickstart_highlight_yank')
+    vim.api.nvim_command('autocmd!')
+    -- Define the autocmd to trigger after text is yanked
+    vim.api.nvim_command('autocmd TextYankPost * lua vim.highlight.on_yank()')
+    -- End the autogroup
+    vim.api.nvim_command('augroup END')
+end
+
+-- Call the function to set up the autocmd
+setup_highlight_on_yank()
+

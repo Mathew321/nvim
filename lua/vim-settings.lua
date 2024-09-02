@@ -26,4 +26,3 @@ end
 
 -- Call the function to set up the autocmd
 setup_highlight_on_yank()
-
